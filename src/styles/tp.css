@@ -1,55 +1,155 @@
+/*
+ * Liceo TP Design System — Colors & Typography
+ * Source: cmperaltarivas/astro-tp (Astro + Starlight)
+ * Fonts: Plus Jakarta Sans, Libre Baskerville (Google Fonts)
+ */
+
+/* ─── Google Fonts ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ─── Base Color Tokens ─────────────────────────────────────────────────────── */
 :root {
+  /* Green scale (brand primary) */
   --tp-green-700: #15803d;
   --tp-green-600: #16a34a;
   --tp-green-500: #22c55e;
   --tp-green-400: #4ade80;
-  --tp-green-50: #f0fdf4;
-  --tp-surface: #ffffff;
-  --tp-surface-dark: #0f172a;
-  --tp-border: #e2e8f0;
-  --tp-text: #1e293b;
-  --tp-text-soft: #64748b;
+  --tp-green-50:  #f0fdf4;
+  --tp-green-accent-low: #dcfce7;
+
+  /* Blue (card variant) */
+  --tp-blue-700: #1d4ed8;
+  --tp-blue-600: #2563eb;
+  --tp-blue-400: #60a5fa;
+
+  /* Orange (card variant) */
+  --tp-orange-700: #b45309;
+  --tp-orange-600: #ea7835;
+  --tp-orange-400: #fb923c;
+
+  /* Purple (card variant) */
+  --tp-purple-700: #6d28d9;
+  --tp-purple-600: #7c3aed;
+  --tp-purple-400: #a78bfa;
+
+  /* Teal (card variant) */
+  --tp-teal-700: #0f766e;
+  --tp-teal-600: #0d9488;
+  --tp-teal-400: #2dd4bf;
+
+  /* Slate neutrals */
+  --tp-slate-950: #020617;
+  --tp-slate-900: #0f172a;
+  --tp-slate-800: #1e293b;
+  --tp-slate-700: #334155;
+  --tp-slate-500: #64748b;
+  --tp-slate-400: #94a3b8;
+  --tp-slate-200: #e2e8f0;
+  --tp-slate-100: #f1f5f9;
+  --tp-slate-50:  #f8fafc;
+
+  /* ─── Semantic tokens (light mode) ────────────────────────── */
+  --tp-surface:         #ffffff;
+  --tp-surface-raised:  #f8fafc;
+  --tp-surface-dark:    #0f172a;
+  --tp-border:          #e2e8f0;
+  --tp-text:            #1e293b;
+  --tp-text-soft:       #64748b;
+  --tp-text-invert:     #ffffff;
+
+  --tp-accent:          var(--tp-green-600);
+  --tp-accent-high:     var(--tp-green-700);
+  --tp-accent-low:      var(--tp-green-accent-low);
+
+  /* Starlight overrides */
   --sl-color-accent-high: var(--tp-green-700);
-  --sl-color-accent: var(--tp-green-600);
-  --sl-color-accent-low: #dcfce7;
-  --sl-color-text: #1e293b;
+  --sl-color-accent:      var(--tp-green-600);
+  --sl-color-accent-low:  #dcfce7;
+  --sl-color-text:        #1e293b;
   --sl-color-text-accent: var(--tp-green-700);
   --sl-color-text-invert: #ffffff;
-  --sl-color-bg-sidebar: #f8fafc;
+  --sl-color-bg-sidebar:  #f8fafc;
 }
 
+/* ─── Dark mode semantic overrides ─────────────────────────────────────────── */
 :root[data-theme='dark'] {
-  --tp-surface: #0f172a;
-  --tp-border: #334155;
-  --tp-text: #f1f5f9;
-  --tp-text-soft: #94a3b8;
+  --tp-surface:         #0f172a;
+  --tp-surface-raised:  #1e293b;
+  --tp-border:          #334155;
+  --tp-text:            #f1f5f9;
+  --tp-text-soft:       #94a3b8;
+  --tp-text-invert:     #052e16;
+
+  --tp-accent:          var(--tp-green-500);
+  --tp-accent-high:     var(--tp-green-400);
+  --tp-accent-low:      rgba(34, 197, 94, 0.15);
+
   --sl-color-accent-high: #4ade80;
-  --sl-color-accent: #22c55e;
-  --sl-color-accent-low: rgba(34, 197, 94, 0.15);
-  --sl-color-text: #f1f5f9;
+  --sl-color-accent:      #22c55e;
+  --sl-color-accent-low:  rgba(34, 197, 94, 0.15);
+  --sl-color-text:        #f1f5f9;
   --sl-color-text-accent: #4ade80;
   --sl-color-text-invert: #052e16;
-  --sl-color-bg-sidebar: #0f172a;
+  --sl-color-bg-sidebar:  #0f172a;
 }
 
+/* ─── Typography ────────────────────────────────────────────────────────────── */
+:root {
+  /* Font families */
+  --font-sans:    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif:   'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  --font-mono:    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Font sizes */
+  --text-xs:    0.75rem;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-lg:    1.125rem;
+  --text-xl:    1.25rem;
+  --text-2xl:   1.5rem;
+  --text-3xl:   1.875rem;
+  --text-4xl:   2.25rem;
+  --text-hero:  clamp(2.5rem, 5vw, 3.5rem);
+
+  /* Font weights */
+  --fw-normal:    400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+
+  /* Line heights */
+  --lh-tight:   1.2;
+  --lh-snug:    1.4;
+  --lh-normal:  1.6;
+  --lh-relaxed: 1.75;
+
+  /* Letter spacing */
+  --ls-headings: -0.02em;
+  --ls-normal:    0em;
+  --ls-wide:      0.04em;
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  font-family: var(--font-sans);
   color: var(--tp-text);
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;
   margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  letter-spacing: -0.02em;
-  color: var(--tp-text);
+  font-family: var(--font-sans);
   font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-headings);
+  color: var(--tp-text);
 }
 
+/* ─── Hero Section ────────────────────────────────────────────────────────────── */
 .tp-hero {
   text-align: center;
   padding: 4rem 1rem 2rem;
@@ -58,7 +158,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tp-hero h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: var(--text-hero);
+  font-weight: var(--fw-bold);
   margin-bottom: 1rem;
   background: linear-gradient(135deg, var(--tp-green-700), var(--tp-green-500));
   -webkit-background-clip: text;
@@ -67,8 +168,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tp-hero p {
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   color: var(--tp-text-soft);
+  line-height: var(--lh-relaxed);
   margin: 0;
 }
 
@@ -99,10 +201,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0.5rem;
 }
 
+/* ─── Cards ─────────────────────────────────────────────────────────────────── */
 .tp-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: 1.25rem;
   max-width: 1100px;
   margin: 3rem auto;
   padding: 0 1.5rem;
@@ -112,7 +215,9 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--tp-surface);
   border: 1px solid var(--tp-border);
   border-radius: 16px;
-  padding: 2rem;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
   transition: all 0.3s ease;
 }
 
@@ -121,54 +226,115 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tp-card:hover {
-  border-color: var(--tp-green-500);
-  box-shadow: 0 20px 40px rgba(21, 128, 61, 0.1);
   transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(21, 128, 61, 0.1);
+}
+
+:root[data-theme='dark'] .tp-card:hover {
+  border-color: var(--tp-green-500);
+}
+
+/* Card top bar gradient */
+.tp-card-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.tp-card-bar.green { background: linear-gradient(90deg, var(--tp-green-700), var(--tp-green-500)); }
+.tp-card-bar.blue { background: linear-gradient(90deg, var(--tp-blue-600), var(--tp-blue-400)); }
+.tp-card-bar.orange { background: linear-gradient(90deg, var(--tp-orange-600), var(--tp-orange-400)); }
+.tp-card-bar.purple { background: linear-gradient(90deg, var(--tp-purple-600), var(--tp-purple-400)); }
+.tp-card-bar.teal { background: linear-gradient(90deg, var(--tp-teal-600), var(--tp-teal-400)); }
+
+.tp-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  padding-top: 0.5rem;
 }
 
 .tp-card-icon {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--tp-green-700), var(--tp-green-500));
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
 }
 
+.tp-card-icon.green { background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(74, 222, 128, 0.3); }
+.tp-card-icon.blue { background: rgba(37, 99, 235, 0.12); border: 1px solid rgba(96, 165, 250, 0.28); }
+.tp-card-icon.orange { background: rgba(234, 120, 53, 0.15); border: 1px solid rgba(251, 146, 60, 0.25); }
+.tp-card-icon.purple { background: rgba(124, 58, 237, 0.14); border: 1px solid rgba(167, 139, 250, 0.25); }
+.tp-card-icon.teal { background: rgba(20, 184, 166, 0.15); border: 1px solid rgba(45, 212, 191, 0.25); }
+
+.tp-card-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.tp-card-badge.green { background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(74, 222, 128, 0.35); color: #14532d; }
+.tp-card-badge.blue { background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(96, 165, 250, 0.24); color: #1d4ed8; }
+.tp-card-badge.orange { background: rgba(234, 120, 53, 0.12); border: 1px solid rgba(251, 146, 60, 0.3); color: #b45309; }
+.tp-card-badge.purple { background: rgba(124, 58, 237, 0.12); border: 1px solid rgba(167, 139, 250, 0.28); color: #6d28d9; }
+.tp-card-badge.teal { background: rgba(20, 184, 166, 0.12); border: 1px solid rgba(45, 212, 191, 0.3); color: #0f766e; }
+
+:root[data-theme='dark'] .tp-card-badge.green { background: rgba(34, 197, 94, 0.2); color: var(--tp-green-400); }
+:root[data-theme='dark'] .tp-card-badge.blue { color: var(--tp-blue-400); }
+:root[data-theme='dark'] .tp-card-badge.orange { color: var(--tp-orange-400); }
+:root[data-theme='dark'] .tp-card-badge.purple { color: var(--tp-purple-400); }
+:root[data-theme='dark'] .tp-card-badge.teal { color: var(--tp-teal-400); }
+
 .tp-card h3 {
-  font-size: 1.25rem;
-  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--tp-slate-800);
+  margin-bottom: 0.375rem;
+  letter-spacing: -0.01em;
+}
+
+:root[data-theme='dark'] .tp-card h3 {
+  color: var(--tp-slate-100);
 }
 
 .tp-card p {
   color: var(--tp-text-soft);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 0 0 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 0.875rem;
 }
 
-.tp-card-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, var(--tp-green-700), var(--tp-green-500));
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
+.tp-card-disabled {
+  font-size: 0.85rem;
+  color: var(--tp-slate-400);
+  font-weight: 500;
+}
+
+.tp-card-cta {
+  font-size: 0.85rem;
   font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
 }
 
-.tp-card-btn:hover {
-  transform: translateX(4px);
-  box-shadow: 0 8px 20px rgba(21, 128, 61, 0.3);
-}
+.tp-card-cta.green { color: var(--tp-green-700); }
+.tp-card-cta.blue { color: var(--tp-blue-600); }
+.tp-card-cta.orange { color: var(--tp-orange-600); }
+.tp-card-cta.purple { color: var(--tp-purple-600); }
+.tp-card-cta.teal { color: var(--tp-teal-600); }
 
+:root[data-theme='dark'] .tp-card-cta.green { color: var(--tp-green-400); }
+:root[data-theme='dark'] .tp-card-cta.blue { color: var(--tp-blue-400); }
+:root[data-theme='dark'] .tp-card-cta.orange { color: var(--tp-orange-400); }
+:root[data-theme='dark'] .tp-card-cta.purple { color: var(--tp-purple-400); }
+:root[data-theme='dark'] .tp-card-cta.teal { color: var(--tp-teal-400); }
+
+/* ─── News Section ──────────────────────────────────────────────────────────── */
 .tp-news {
   max-width: 600px;
   margin: 3rem auto;
@@ -218,19 +384,29 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: underline;
 }
 
+/* ─── Section Headings ───────────────────────────────────────────────────────── */
 .sl-markdown-content h2 {
   text-align: center;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin: 3rem 0 2rem;
   color: var(--tp-text);
+  letter-spacing: var(--ls-headings);
 }
 
+/* ─── Content Fix ────────────────────────────────────────────────────────────── */
 @layer starlight.content {
   .sl-markdown-content > :first-child {
     margin-top: 0 !important;
   }
 }
 
+/* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--tp-border); border-radius: 3px; }
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .tp-hero {
     padding: 2rem 1rem 1rem;
@@ -254,6 +430,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .tp-cards {
     margin: 2rem auto;
+    grid-template-columns: 1fr;
   }
 
   .tp-card {

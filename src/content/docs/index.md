@@ -5,9 +5,9 @@ description: Area Tecnico Profesional - Liceo Bicentenario Rector Anon Andrade C
 
 <div class="tp-hero">
 
-# Area Tecnico Profesional
+# Area Técnico Profesional
 
-Formacion tecnica de calidad para el futuro
+Liceo Bicentenario Rector Abdón Andrade Coloma — Especialidades técnicas para el mundo del trabajo.
 
 </div>
 
@@ -19,60 +19,57 @@ Formacion tecnica de calidad para el futuro
 </div>
 
 <div class="tp-stat">
-<span class="tp-stat-number">2</span>
-<span class="tp-stat-label">Anos de Formacion</span>
+<span class="tp-stat-number">12+</span>
+<span class="tp-stat-label">Módulos activos</span>
 </div>
 
 <div class="tp-stat">
-<span class="tp-stat-number">100%</span>
-<span class="tp-stat-label">Practica Profesional</span>
+<span class="tp-stat-number">2</span>
+<span class="tp-stat-label">Niveles</span>
 </div>
 
 </div>
 
-## Nuestras Especialidades
+## Especialidades
 
 <div class="tp-cards">
 
 <div class="tp-card">
-<div class="tp-card-icon">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<circle cx="12" cy="12" r="2"/>
-<path d="M4.93 4.93a10 10 0 0 1 14.14 14.14M19.07 4.93a10 10 0 0 0-14.14 14.14"/>
-</svg>
+<div class="tp-card-bar green"></div>
+<div class="tp-card-header">
+<span class="tp-card-icon green">🔧</span>
+<span class="tp-card-badge green">Activa</span>
 </div>
 <h3>Conectividad y Redes</h3>
-<p>Disena, instala y mantiene redes de telecomunicaciones cableadas e inalambricas. Aprende sobre cableado estructurado, seguridad informatica y mas.</p>
-<a href="/conectividad-y-redes/" class="tp-card-btn">Explorar</a>
+<p>Instalación, configuración y mantención de redes, servidores y sistemas de conectividad.</p>
+<span class="tp-card-cta green">Ver especialidad →</span>
 </div>
 
 <div class="tp-card">
-<div class="tp-card-icon">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<rect x="2" y="7" width="20" height="14" rx="2"/>
-<path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/>
-</svg>
+<div class="tp-card-bar blue"></div>
+<div class="tp-card-header">
+<span class="tp-card-icon blue">📊</span>
+<span class="tp-card-badge blue">Activa</span>
 </div>
-<h3>Administracion</h3>
-<p>Gestion empresarial, recursos humanos y herramientas administrativas. Preprate para el mundo laboral con habilidades de gestion.</p>
-<a href="/administracion/" class="tp-card-btn">Explorar</a>
+<h3>Administración</h3>
+<p>Gestión, organización y soporte operativo en empresas e instituciones públicas o privadas.</p>
+<span class="tp-card-cta blue">Ver especialidad →</span>
 </div>
 
 <div class="tp-card">
-<div class="tp-card-icon">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<line x1="12" y1="1" x2="12" y2="23"/>
-<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-</svg>
+<div class="tp-card-bar orange"></div>
+<div class="tp-card-header">
+<span class="tp-card-icon orange">🧾</span>
+<span class="tp-card-badge orange">En desarrollo</span>
 </div>
 <h3>Contabilidad</h3>
-<p>Registros contables, estados financieros y gestion tributaria. Domina las herramientas financieras que toda empresa necesita.</p>
-<a href="/contabilidad/" class="tp-card-btn">Explorar</a>
+<p>Registro, análisis e interpretación de información financiera para la toma de decisiones.</p>
+<span class="tp-card-disabled">Próximamente</span>
 </div>
 
 </div>
 
-## Ultimas Noticias
+## Últimas Noticias
 
 <div class="tp-news">
 
@@ -83,7 +80,7 @@ Formacion tecnica de calidad para el futuro
 
 <div class="tp-news-item">
 <span class="tp-news-date">10 abr 2026</span>
-<a href="/noticias/gobierno-retira-de-contraloria-dos-decretos-ingresados-para-regular-le/">Nuevo regulacion de telecomunicaciones</a>
+<a href="/noticias/gobierno-retira-de-contraloria-dos-decretos-ingresados-para-regular-le/">Nuevo regulación de telecomunicaciones</a>
 </div>
 
 <div class="tp-news-item">

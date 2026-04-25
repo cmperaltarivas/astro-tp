@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2e8555;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#5de097;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#2e8555;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#5de097;stop-opacity:1"></stop>
     </linearGradient>
   </defs>
-  <rect width="800" height="400" fill="url(#bg)"/>
-  <circle cx="400" cy="160" r="60" fill="white" fill-opacity="0.3"/>
-  <rect x="300" y="220" width="200" height="8" rx="4" fill="white" fill-opacity="0.8"/>
-  <rect x="280" y="240" width="240" height="6" rx="3" fill="white" fill-opacity="0.5"/>
-  <rect x="320" y="256" width="160" height="6" rx="3" fill="white" fill-opacity="0.5"/>
-  <rect x="260" y="276" width="280" height="6" rx="3" fill="white" fill-opacity="0.3"/>
-  <rect x="290" y="292" width="220" height="6" rx="3" fill="white" fill-opacity="0.3"/>
+  <rect width="800" height="400" fill="url(#bg)"></rect>
+  <circle cx="400" cy="160" r="60" fill="white" fill-opacity="0.3"></circle>
+  <rect x="300" y="220" width="200" height="8" rx="4" fill="white" fill-opacity="0.8"></rect>
+  <rect x="280" y="240" width="240" height="6" rx="3" fill="white" fill-opacity="0.5"></rect>
+  <rect x="320" y="256" width="160" height="6" rx="3" fill="white" fill-opacity="0.5"></rect>
+  <rect x="260" y="276" width="280" height="6" rx="3" fill="white" fill-opacity="0.3"></rect>
+  <rect x="290" y="292" width="220" height="6" rx="3" fill="white" fill-opacity="0.3"></rect>
   <text x="400" y="360" font-family="Arial, sans-serif" font-size="14" fill="white" fill-opacity="0.7" text-anchor="middle">📰 Área Técnico Profesional</text>
 </svg>
