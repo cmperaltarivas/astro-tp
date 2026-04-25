@@ -44,30 +44,9 @@ export default defineConfig({
 			customCss: ['./src/styles/tp.css'],
 			components: {
 				Header: './src/components/Navbar.astro',
+				Sidebar: './src/components/Sidebar.astro',
 			},
-			sidebar: [
-				{
-					label: 'Conectividad y Redes',
-					items: [
-						{ label: 'Introduccion', link: '/conectividad-y-redes/intro/' },
-						{ label: 'Apuntes Generales', link: '/conectividad-y-redes/Apuntes_generales/' },
-						{ label: 'Niveles', link: '/conectividad-y-redes/Niveles/' },
-						{ label: 'Planificacion', link: '/conectividad-y-redes/Planificacion/' },
-					],
-				},
-				{
-					label: 'Administracion',
-					items: [
-						{ label: 'Presentacion', link: '/administracion/' },
-					],
-				},
-				{
-					label: 'Contabilidad',
-					items: [
-						{ label: 'Presentacion', link: '/contabilidad/' },
-					],
-				},
-			],
+			sidebar: [],
 			social: [
 				{
 					icon: 'github',

@@ -1,0 +1,147 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import { basicsSidebar } from './sidebar-data';
+
+const { pathname } = Astro.url;
+
+const specialties = [
+  { key: 'conectividad-y-redes', prefix: '/conectividad-y-redes', label: 'Conectividad y Redes' },
+  { key: 'administracion', prefix: '/administracion', label: 'Administración' },
+  { key: 'contabilidad', prefix: '/contabilidad', label: 'Contabilidad' },
+];
+
+const activeSpecialty = specialties.find(s => pathname.startsWith(s.prefix)) || specialties[0];
+
+const currentItems = basicsSidebar[activeSpecialty.key] || basicsSidebar['conectividad-y-redes'];
+
+function isActive(link: string) {
+  return pathname === link || pathname === link + '/';
+}
+---
+
+<div class="tp-sidebar">
+  <div class="tp-sidebar-header">
+    <div class="tp-specialty-badge">
+      {activeSpecialty.key === 'conectividad-y-redes' && '🔧'}
+      {activeSpecialty.key === 'administracion' && '📊'}
+      {activeSpecialty.key === 'contabilidad' && '🧾'}
+      <span>{activeSpecialty.label}</span>
+    </div>
+  </div>
+
+  <nav class="tp-sidebar-nav">
+    {currentItems.map((item) => (
+      <div class="tp-sidebar-section">
+        <h3 class="tp-sidebar-section-title">{item.heading}</h3>
+        <ul class="tp-sidebar-links">
+          {item.links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class={`tp-sidebar-link ${isActive(link.href) ? 'active' : ''}`}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </nav>
+</div>
+
+<style>
+  .tp-sidebar {
+    padding: 1rem 0;
+  }
+
+  .tp-sidebar-header {
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid var(--tp-border);
+    margin-bottom: 1rem;
+  }
+
+  .tp-specialty-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    background: rgba(22, 163, 74, 0.1);
+    border: 1px solid rgba(22, 163, 74, 0.2);
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--tp-green-700);
+  }
+
+  :root[data-theme='dark'] .tp-specialty-badge {
+    background: rgba(74, 222, 128, 0.15);
+    border-color: rgba(74, 222, 128, 0.3);
+    color: var(--tp-green-400);
+  }
+
+  .tp-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .tp-sidebar-section {
+    padding: 0 1rem;
+  }
+
+  .tp-sidebar-section-title {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--tp-slate-400);
+    margin-bottom: 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .tp-sidebar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .tp-sidebar-link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--tp-slate-500);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.15s;
+  }
+
+  .tp-sidebar-link:hover {
+    color: var(--tp-green-700);
+    background: rgba(22, 163, 74, 0.08);
+  }
+
+  .tp-sidebar-link.active {
+    color: var(--tp-green-700);
+    background: rgba(22, 163, 74, 0.12);
+    font-weight: 600;
+  }
+
+  :root[data-theme='dark'] .tp-sidebar-link {
+    color: var(--tp-slate-400);
+  }
+
+  :root[data-theme='dark'] .tp-sidebar-link:hover {
+    color: var(--tp-green-400);
+    background: rgba(74, 222, 128, 0.12);
+  }
+
+  :root[data-theme='dark'] .tp-sidebar-link.active {
+    color: var(--tp-green-400);
+    background: rgba(74, 222, 128, 0.15);
+  }
+</style>
