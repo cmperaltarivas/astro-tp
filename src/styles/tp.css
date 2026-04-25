@@ -402,29 +402,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
-/* Hide all scrollbars */
-::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 0;
-}
-
-/* Remove scrollbar from HTML */
-html {
+/* Hide all scrollbars - always hidden */
+:root {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-html::-webkit-scrollbar {
-  display: none;
+::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}
+
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+*::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────────────────── */
