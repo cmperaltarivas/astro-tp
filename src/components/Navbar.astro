@@ -264,45 +264,49 @@ const isActive = (href: string) => {
     position: relative;
   }
 
-  .nav-link {
+  .nav-link,
+  .dropdown-trigger {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.875rem;
     color: #64748b;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9375rem;
     border-radius: 0.5rem;
     transition: all 0.2s;
+    font-family: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
   }
 
-  @media (min-width: 1024px) {
-    .nav-link {
-      padding: 0.5rem 0.875rem;
-    }
-  }
-
-  .nav-link:hover {
+  .nav-link:hover,
+  .dropdown-trigger:hover {
     color: #15803d;
     background: rgba(22, 163, 74, 0.08);
   }
 
-  .nav-link.active {
+  .nav-link.active,
+  .dropdown-trigger.active {
     color: #15803d;
     background: rgba(22, 163, 74, 0.1);
   }
 
-  :root[data-theme='dark'] .nav-link {
+  :root[data-theme='dark'] .nav-link,
+  :root[data-theme='dark'] .dropdown-trigger {
     color: #94a3b8;
   }
 
-  :root[data-theme='dark'] .nav-link:hover {
+  :root[data-theme='dark'] .nav-link:hover,
+  :root[data-theme='dark'] .dropdown-trigger:hover {
     color: #4ade80;
     background: rgba(74, 222, 128, 0.12);
   }
 
-  :root[data-theme='dark'] .nav-link.active {
+  :root[data-theme='dark'] .nav-link.active,
+  :root[data-theme='dark'] .dropdown-trigger.active {
     color: #4ade80;
     background: rgba(74, 222, 128, 0.15);
   }
@@ -311,10 +315,6 @@ const isActive = (href: string) => {
     width: 16px;
     height: 16px;
     transition: transform 0.2s;
-  }
-
-  .dropdown-trigger {
-    cursor: pointer;
   }
 
   .nav-dropdown {
