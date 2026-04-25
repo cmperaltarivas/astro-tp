@@ -25,23 +25,15 @@ function isActive(link: string) {
       <span class="specialty-icon">{activeSpecialty.icon}</span>
       <span class="specialty-label">{activeSpecialty.label}</span>
     </div>
-    <button class="tp-sidebar-toggle" id="sidebar-toggle" aria-label="Alternar sidebar" title="Contraer/Expandir">
-      <svg viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
-      </svg>
-    </button>
   </div>
 
   <nav class="tp-sidebar-nav" id="sidebar-nav">
     {currentItems.map((section, sectionIndex) => (
       <div class="tp-sidebar-section">
-        <button class="tp-sidebar-section-title" type="button" data-section={sectionIndex}>
+        <h3 class="tp-sidebar-section-title">
           <span>{section.heading}</span>
-          <svg class="section-arrow" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-          </svg>
-        </button>
-        <ul class="tp-sidebar-links" data-section={sectionIndex}>
+        </h3>
+        <ul class="tp-sidebar-links">
           {section.links.map((link, linkIndex) => (
             <li class="tp-sidebar-item" style={`--link-index: ${linkIndex}`}>
               <a
@@ -98,50 +90,6 @@ function isActive(link: string) {
     padding: 0 1rem 1rem;
     border-bottom: 1px solid var(--tp-border);
     margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .tp-sidebar-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    background: transparent;
-    border: 1px solid var(--tp-border);
-    border-radius: 6px;
-    color: var(--tp-slate-400);
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-left: auto;
-    flex-shrink: 0;
-  }
-
-  .tp-sidebar-toggle:hover {
-    color: var(--tp-green-700);
-    border-color: var(--tp-green-700);
-    background: rgba(22, 163, 74, 0.08);
-  }
-
-  .tp-sidebar-toggle svg {
-    width: 14px;
-    height: 14px;
-    transition: transform 0.2s;
-  }
-
-  .tp-sidebar.collapsed .tp-sidebar-toggle svg {
-    transform: rotate(180deg);
-  }
-
-  .tp-sidebar.collapsed .tp-sidebar-nav {
-    display: none;
-  }
-
-  .tp-sidebar.collapsed .tp-specialty-badge {
-    width: 100%;
-    justify-content: center;
   }
 
   .tp-specialty-badge {
@@ -213,28 +161,14 @@ function isActive(link: string) {
   }
 
   .tp-sidebar-section-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    display: block;
     padding: 0.5rem 0.75rem;
     font-size: 0.6875rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--tp-slate-400);
-    background: none;
-    border: none;
-    cursor: default;
-    text-align: left;
-    transition: color 0.2s;
-  }
-
-  .section-arrow {
-    width: 14px;
-    height: 14px;
-    opacity: 0.5;
-    transition: transform 0.2s;
+    margin: 0;
   }
 
   .tp-sidebar-links {
@@ -408,38 +342,4 @@ function isActive(link: string) {
   ::-webkit-scrollbar-thumb:hover {
     background: var(--tp-slate-400);
   }
-
-  .tp-sidebar-section-title.collapsed .section-arrow {
-    transform: rotate(-90deg);
-  }
-
-  .tp-sidebar-links.collapsed {
-    display: none;
-  }
 </style>
-
-<script>
-  const sidebarToggle = document.getElementById('sidebar-toggle');
-  const sidebar = document.querySelector('.tp-sidebar');
-  const sectionButtons = document.querySelectorAll('.tp-sidebar-section-title[data-section]');
-
-  if (sidebarToggle && sidebar) {
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('collapsed');
-      localStorage.setItem('sidebar-collapsed', sidebar.classList.contains('collapsed'));
-    });
-
-    if (localStorage.getItem('sidebar-collapsed') === 'true') {
-      sidebar.classList.add('collapsed');
-    }
-  }
-
-  sectionButtons.forEach((btn) => {
-    const sectionIndex = btn.getAttribute('data-section');
-    const links = document.querySelector(`.tp-sidebar-links[data-section="${sectionIndex}"]`);
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('collapsed');
-      links?.classList.toggle('collapsed');
-    });
-  });
-</script>
