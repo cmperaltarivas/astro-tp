@@ -43,7 +43,7 @@ function isActive(link: string) {
                 href={link.href}
                 class={`tp-sidebar-link ${isActive(link.href) ? 'active' : ''}`}
               >
-                <span class="link-indicator"></span>
+                <span class="link-icon">{link.icon || '📄'}</span>
                 <span class="link-label">{link.label}</span>
                 {isActive(link.href) && (
                   <svg class="link-active-icon" viewBox="0 0 20 20" fill="currentColor">
@@ -225,6 +225,16 @@ function isActive(link: string) {
     border-radius: 10px;
     transition: all 0.2s;
     position: relative;
+  }
+
+  .link-icon {
+    font-size: 1rem;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
   .link-indicator {
