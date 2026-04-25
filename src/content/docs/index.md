@@ -95,19 +95,19 @@ description: Area Tecnico Profesional - Liceo Bicentenario Rector Abdón Andrade
   <section class="section quick-links">
     <h2 class="section-title">Acceso Rápido</h2>
     <div class="links-grid">
-      <a href="/conectividad-y-redes/Planificacion/" class="quick-link">
+      <a href="/conectividad-y-redes/planificacion/" class="quick-link">
         <span class="link-icon">📋</span>
         <span class="link-text">Planificaciones</span>
       </a>
-      <a href="/conectividad-y-redes/Niveles/tercero-medio/" class="quick-link">
+      <a href="/conectividad-y-redes/niveles/tercero-medio/" class="quick-link">
         <span class="link-icon">🎓</span>
         <span class="link-text">3° Medio</span>
       </a>
-      <a href="/conectividad-y-redes/Niveles/cuarto-medio/" class="quick-link">
+      <a href="/conectividad-y-redes/niveles/cuarto-medio/" class="quick-link">
         <span class="link-icon">🎯</span>
         <span class="link-text">4° Medio</span>
       </a>
-      <a href="/conectividad-y-redes/Apuntes_generales/" class="quick-link">
+      <a href="/conectividad-y-redes/apuntes_generales/" class="quick-link">
         <span class="link-icon">📚</span>
         <span class="link-text">Apuntes</span>
       </a>

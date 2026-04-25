@@ -9,25 +9,25 @@ export const basicsSidebar = {
     {
       heading: 'Apuntes Generales',
       links: [
-        { label: 'DNS con BIND9', href: '/conectividad-y-redes/Apuntes_generales/servidor-dns/', icon: '🌐' },
-        { label: 'Servidor de Correo', href: '/conectividad-y-redes/Apuntes_generales/servidor-correo/', icon: '📧' },
-        { label: 'Certificado SSL', href: '/conectividad-y-redes/Apuntes_generales/certificado-ssl/', icon: '🔒' },
-        { label: 'Respaldar Ubuntu', href: '/conectividad-y-redes/Apuntes_generales/respaldo-ubuntu-server/', icon: '💾' },
-        { label: 'Moodle', href: '/conectividad-y-redes/Apuntes_generales/moodle/', icon: '📚' },
-        { label: 'WordPress', href: '/conectividad-y-redes/Apuntes_generales/wordpress/', icon: '🌍' },
+        { label: 'DNS con BIND9', href: '/conectividad-y-redes/apuntes_generales/servidor-dns/', icon: '🌐' },
+        { label: 'Servidor de Correo', href: '/conectividad-y-redes/apuntes_generales/servidor-correo/', icon: '📧' },
+        { label: 'Certificado SSL', href: '/conectividad-y-redes/apuntes_generales/certificado-ssl/', icon: '🔒' },
+        { label: 'Respaldar Ubuntu', href: '/conectividad-y-redes/apuntes_generales/respaldo-ubuntu-server/', icon: '💾' },
+        { label: 'Moodle', href: '/conectividad-y-redes/apuntes_generales/moodle/', icon: '📚' },
+        { label: 'WordPress', href: '/conectividad-y-redes/apuntes_generales/wordpress/', icon: '🌍' },
       ],
     },
     {
       heading: 'Contenido por Nivel',
       links: [
-        { label: '3° Medio', href: '/conectividad-y-redes/Niveles/tercero-medio/', icon: '🎓' },
-        { label: '4° Medio', href: '/conectividad-y-redes/Niveles/cuarto-medio/', icon: '🎓' },
+        { label: '3° Medio', href: '/conectividad-y-redes/niveles/tercero-medio/', icon: '🎓' },
+        { label: '4° Medio', href: '/conectividad-y-redes/niveles/cuarto-medio/', icon: '🎓' },
       ],
     },
     {
       heading: 'Planificación',
       links: [
-        { label: 'Módulos', href: '/conectividad-y-redes/Planificacion/', icon: '📋' },
+        { label: 'Módulos', href: '/conectividad-y-redes/planificacion/', icon: '📋' },
       ],
     },
   ],
