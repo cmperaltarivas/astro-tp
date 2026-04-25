@@ -5,9 +5,9 @@ import { basicsSidebar } from './sidebar-data';
 const { pathname } = Astro.url;
 
 const specialties = [
-  { key: 'conectividad-y-redes', prefix: '/conectividad-y-redes', label: 'Conectividad y Redes' },
-  { key: 'administracion', prefix: '/administracion', label: 'Administración' },
-  { key: 'contabilidad', prefix: '/contabilidad', label: 'Contabilidad' },
+  { key: 'conectividad-y-redes', prefix: '/conectividad-y-redes', label: 'Conectividad y Redes', icon: '🔧', color: 'green' },
+  { key: 'administracion', prefix: '/administracion', label: 'Administración', icon: '📊', color: 'blue' },
+  { key: 'contabilidad', prefix: '/contabilidad', label: 'Contabilidad', icon: '🧾', color: 'orange' },
 ];
 
 const activeSpecialty = specialties.find(s => pathname.startsWith(s.prefix)) || specialties[0];
@@ -21,26 +21,35 @@ function isActive(link: string) {
 
 <div class="tp-sidebar" key={activeSpecialty.key}>
   <div class="tp-sidebar-header">
-    <div class="tp-specialty-badge">
-      {activeSpecialty.key === 'conectividad-y-redes' && '🔧'}
-      {activeSpecialty.key === 'administracion' && '📊'}
-      {activeSpecialty.key === 'contabilidad' && '🧾'}
-      <span>{activeSpecialty.label}</span>
+    <div class={`tp-specialty-badge ${activeSpecialty.color}`}>
+      <span class="specialty-icon">{activeSpecialty.icon}</span>
+      <span class="specialty-label">{activeSpecialty.label}</span>
     </div>
   </div>
 
   <nav class="tp-sidebar-nav">
-    {currentItems.map((item) => (
+    {currentItems.map((section, sectionIndex) => (
       <div class="tp-sidebar-section">
-        <h3 class="tp-sidebar-section-title">{item.heading}</h3>
-        <ul class="tp-sidebar-links">
-          {item.links.map((link) => (
-            <li>
+        <button class="tp-sidebar-section-title" type="button">
+          <span>{section.heading}</span>
+          <svg class="section-arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <ul class="tp-sidebar-links" style={`--section-index: ${sectionIndex}`}>
+          {section.links.map((link, linkIndex) => (
+            <li class="tp-sidebar-item" style={`--link-index: ${linkIndex}`}>
               <a
                 href={link.href}
                 class={`tp-sidebar-link ${isActive(link.href) ? 'active' : ''}`}
               >
-                {link.label}
+                <span class="link-indicator"></span>
+                <span class="link-label">{link.label}</span>
+                {isActive(link.href) && (
+                  <svg class="link-active-icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                )}
               </a>
             </li>
           ))}
@@ -48,18 +57,31 @@ function isActive(link: string) {
       </div>
     ))}
   </nav>
+
+  <div class="tp-sidebar-footer">
+    <a href="/" class="tp-sidebar-home">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span>Volver al inicio</span>
+    </a>
+  </div>
 </div>
 
 <style>
   .tp-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     padding: 1rem 0;
-    animation: fadeIn 0.2s ease-out;
+    animation: fadeIn 0.3s ease-out;
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(4px);
+      transform: translateY(8px);
     }
     to {
       opacity: 1;
@@ -74,73 +96,182 @@ function isActive(link: string) {
   }
 
   .tp-specialty-badge {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.375rem 0.75rem;
+    gap: 0.625rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .tp-specialty-badge.green {
     background: rgba(22, 163, 74, 0.1);
     border: 1px solid rgba(22, 163, 74, 0.2);
-    border-radius: 8px;
-    font-size: 0.8125rem;
-    font-weight: 600;
     color: var(--tp-green-700);
   }
 
-  :root[data-theme='dark'] .tp-specialty-badge {
+  .tp-specialty-badge.blue {
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    color: var(--tp-blue-600);
+  }
+
+  .tp-specialty-badge.orange {
+    background: rgba(234, 120, 53, 0.1);
+    border: 1px solid rgba(234, 120, 53, 0.2);
+    color: var(--tp-orange-600);
+  }
+
+  .specialty-icon {
+    font-size: 1.125rem;
+  }
+
+  .specialty-label {
+    flex: 1;
+  }
+
+  :root[data-theme='dark'] .tp-specialty-badge.green {
     background: rgba(74, 222, 128, 0.15);
     border-color: rgba(74, 222, 128, 0.3);
     color: var(--tp-green-400);
   }
 
+  :root[data-theme='dark'] .tp-specialty-badge.blue {
+    background: rgba(96, 165, 250, 0.15);
+    border-color: rgba(96, 165, 250, 0.3);
+    color: var(--tp-blue-400);
+  }
+
+  :root[data-theme='dark'] .tp-specialty-badge.orange {
+    background: rgba(251, 146, 60, 0.15);
+    border-color: rgba(251, 146, 60, 0.3);
+    color: var(--tp-orange-400);
+  }
+
   .tp-sidebar-nav {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.25rem;
+    padding: 0 0.75rem;
+    overflow-y: auto;
   }
 
   .tp-sidebar-section {
-    padding: 0 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .tp-sidebar-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
     font-size: 0.6875rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     color: var(--tp-slate-400);
-    margin-bottom: 0.5rem;
-    padding: 0 0.5rem;
+    background: none;
+    border: none;
+    cursor: default;
+    text-align: left;
+    transition: color 0.2s;
+  }
+
+  .section-arrow {
+    width: 14px;
+    height: 14px;
+    opacity: 0.5;
+    transition: transform 0.2s;
   }
 
   .tp-sidebar-links {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0.25rem 0;
     display: flex;
     flex-direction: column;
     gap: 0.125rem;
   }
 
+  .tp-sidebar-item {
+    animation: slideIn 0.3s ease-out backwards;
+    animation-delay: calc(var(--link-index) * 50ms);
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   .tp-sidebar-link {
-    display: block;
-    padding: 0.5rem 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.625rem 0.875rem;
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--tp-slate-500);
     text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.15s;
+    border-radius: 10px;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .link-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .link-label {
+    flex: 1;
+  }
+
+  .link-active-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--tp-green-600);
+    animation: checkIn 0.2s ease-out;
+  }
+
+  @keyframes checkIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   .tp-sidebar-link:hover {
-    color: var(--tp-green-700);
-    background: rgba(22, 163, 74, 0.08);
+    color: var(--tp-slate-800);
+    background: rgba(22, 163, 74, 0.06);
   }
 
   .tp-sidebar-link.active {
     color: var(--tp-green-700);
-    background: rgba(22, 163, 74, 0.12);
+    background: rgba(22, 163, 74, 0.1);
     font-weight: 600;
+  }
+
+  .tp-sidebar-link.active .link-indicator {
+    background: var(--tp-green-600);
+    box-shadow: 0 0 8px rgba(22, 163, 74, 0.4);
   }
 
   :root[data-theme='dark'] .tp-sidebar-link {
@@ -148,12 +279,74 @@ function isActive(link: string) {
   }
 
   :root[data-theme='dark'] .tp-sidebar-link:hover {
-    color: var(--tp-green-400);
-    background: rgba(74, 222, 128, 0.12);
+    color: var(--tp-slate-200);
+    background: rgba(74, 222, 128, 0.08);
   }
 
   :root[data-theme='dark'] .tp-sidebar-link.active {
     color: var(--tp-green-400);
-    background: rgba(74, 222, 128, 0.15);
+    background: rgba(74, 222, 128, 0.12);
+  }
+
+  :root[data-theme='dark'] .tp-sidebar-link.active .link-active-icon {
+    color: var(--tp-green-400);
+  }
+
+  :root[data-theme='dark'] .tp-sidebar-section-title {
+    color: var(--tp-slate-500);
+  }
+
+  .tp-sidebar-footer {
+    padding: 1rem;
+    margin-top: auto;
+    border-top: 1px solid var(--tp-border);
+  }
+
+  .tp-sidebar-home {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--tp-slate-500);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+
+  .tp-sidebar-home:hover {
+    color: var(--tp-green-700);
+    background: rgba(22, 163, 74, 0.08);
+  }
+
+  .tp-sidebar-home svg {
+    opacity: 0.7;
+  }
+
+  :root[data-theme='dark'] .tp-sidebar-home {
+    color: var(--tp-slate-400);
+  }
+
+  :root[data-theme='dark'] .tp-sidebar-home:hover {
+    color: var(--tp-green-400);
+    background: rgba(74, 222, 128, 0.12);
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--tp-border);
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--tp-slate-400);
   }
 </style>
