@@ -51,6 +51,7 @@ export default defineConfig({
 				Sidebar: './src/components/Sidebar.astro',
 			},
 			sidebar: [],
+			disable404Route: true,
 			social: [
 				{
 					icon: 'github',
